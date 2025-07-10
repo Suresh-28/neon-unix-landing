@@ -61,7 +61,14 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				// Custom neon colors
+				'neon-cyan': 'hsl(var(--neon-cyan))',
+				'neon-magenta': 'hsl(var(--neon-magenta))',
+				'charcoal': 'hsl(var(--charcoal))',
+				'light-text': 'hsl(var(--light-text))',
+				'card-bg': 'hsl(var(--card-bg))',
+				'muted-bg': 'hsl(var(--muted-bg))'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -84,11 +91,62 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'fade-up': {
+					'0%': {
+						opacity: '0',
+						transform: 'translateY(30px) scale(0.95)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'translateY(0) scale(1)'
+					}
+				},
+				'typewriter': {
+					'0%': { width: '0' },
+					'100%': { width: '100%' }
+				},
+				'glow-pulse': {
+					'0%, 100%': { 
+						boxShadow: '0 0 20px hsl(var(--neon-cyan) / 0.3)'
+					},
+					'50%': { 
+						boxShadow: '0 0 40px hsl(var(--neon-cyan) / 0.5)'
+					}
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0px)' },
+					'50%': { transform: 'translateY(-10px)' }
+				},
+				'ripple': {
+					'0%': {
+						transform: 'scale(0)',
+						opacity: '1'
+					},
+					'100%': {
+						transform: 'scale(4)',
+						opacity: '0'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-up': 'fade-up 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards',
+				'typewriter': 'typewriter 3s steps(40, end)',
+				'glow-pulse': 'glow-pulse 2s ease-in-out infinite',
+				'float': 'float 3s ease-in-out infinite',
+				'ripple': 'ripple 0.6s linear'
+			},
+			backgroundImage: {
+				'gradient-neon': 'linear-gradient(135deg, hsl(var(--neon-cyan)), hsl(var(--neon-magenta)))',
+				'gradient-dark': 'linear-gradient(135deg, hsl(var(--charcoal)), hsl(var(--muted-bg)))',
+				'gradient-subtle': 'linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted-bg)))'
+			},
+			boxShadow: {
+				'neon': '0 0 30px hsl(var(--neon-cyan) / 0.3)',
+				'glow': '0 10px 40px hsl(var(--neon-cyan) / 0.2)',
+				'card': '0 8px 32px hsl(0 0% 0% / 0.4)'
 			}
 		}
 	},
