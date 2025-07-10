@@ -93,7 +93,7 @@ export const ProductShowcase = () => {
               />
               
               <motion.div
-                className="absolute bottom-8 left-8 w-2 h-2 bg-neon-magenta rounded-full"
+                className="absolute bottom-8 left-8 w-2 h-2 bg-neon-blue rounded-full"
                 animate={{ 
                   scale: [1, 1.8, 1], 
                   opacity: [0.6, 0.2, 0.6] 
