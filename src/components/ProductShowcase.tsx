@@ -50,25 +50,56 @@ export const ProductShowcase = () => {
               {/* Animated Labels */}
               <motion.div
                 className="absolute top-4 left-4"
-                initial={{ opacity: 0, scale: 0 }}
-                animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                initial={{ opacity: 0, scale: 0, y: -20 }}
+                animate={isInView ? { opacity: 1, scale: 1, y: 0 } : {}}
                 transition={{ delay: 0.8, type: "spring", stiffness: 200 }}
+                whileHover={{ scale: 1.1, rotate: [0, -2, 2, 0] }}
               >
-                <Badge className="bg-gradient-neon text-charcoal font-mono">
-                  Live Dashboard
+                <Badge className="bg-gradient-neon text-charcoal font-mono animate-glow-pulse">
+                  <motion.span
+                    animate={{ opacity: [1, 0.7, 1] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  >
+                    ● Live Dashboard
+                  </motion.span>
                 </Badge>
               </motion.div>
 
               <motion.div
                 className="absolute bottom-4 right-4"
-                initial={{ opacity: 0, scale: 0 }}
-                animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                initial={{ opacity: 0, scale: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, scale: 1, y: 0 } : {}}
                 transition={{ delay: 1.0, type: "spring", stiffness: 200 }}
+                whileHover={{ scale: 1.1, rotate: [0, 2, -2, 0] }}
               >
                 <Badge variant="outline" className="neon-border text-neon-cyan font-mono">
-                  Real-time Data
+                  <motion.span
+                    animate={{ x: [0, 2, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                  >
+                    ⚡ Real-time Data
+                  </motion.span>
                 </Badge>
               </motion.div>
+
+              {/* Pulsing indicators */}
+              <motion.div
+                className="absolute top-8 right-8 w-3 h-3 bg-neon-cyan rounded-full"
+                animate={{ 
+                  scale: [1, 1.5, 1], 
+                  opacity: [0.8, 0.3, 0.8] 
+                }}
+                transition={{ duration: 2, repeat: Infinity }}
+              />
+              
+              <motion.div
+                className="absolute bottom-8 left-8 w-2 h-2 bg-neon-magenta rounded-full"
+                animate={{ 
+                  scale: [1, 1.8, 1], 
+                  opacity: [0.6, 0.2, 0.6] 
+                }}
+                transition={{ duration: 2.5, repeat: Infinity, delay: 0.5 }}
+              />
 
               {/* Glow Effect */}
               <div className="absolute inset-0 bg-gradient-neon opacity-0 group-hover:opacity-10 rounded-lg transition-opacity duration-500" />

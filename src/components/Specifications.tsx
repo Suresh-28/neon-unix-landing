@@ -61,7 +61,7 @@ export const Specifications = () => {
             {specs.map((spec, index) => (
               <motion.div
                 key={spec.label}
-                className="space-y-3"
+                className="relative space-y-3"
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ 
@@ -83,10 +83,27 @@ export const Specifications = () => {
                   animate={isInView ? { width: "100%" } : {}}
                   transition={{ duration: 1, delay: 0.5 + (index * 0.2) }}
                 >
-                  <Progress 
-                    value={spec.value} 
-                    className="h-2 bg-muted"
-                  />
+                  <motion.div
+                    initial={{ scaleX: 0 }}
+                    animate={isInView ? { scaleX: 1 } : {}}
+                    transition={{ duration: 1.2, delay: 0.8 + (index * 0.3), ease: "easeOut" }}
+                    className="origin-left"
+                  >
+                    <Progress 
+                      value={spec.value} 
+                      className="h-3 bg-muted overflow-hidden"
+                    />
+                  </motion.div>
+                </motion.div>
+                
+                {/* Animated counter */}
+                <motion.div
+                  className="absolute top-0 right-0"
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                  transition={{ duration: 0.6, delay: 1.2 + (index * 0.3), type: "spring" }}
+                >
+                  <div className="w-2 h-2 bg-neon-cyan rounded-full animate-glow-pulse" />
                 </motion.div>
               </motion.div>
             ))}
